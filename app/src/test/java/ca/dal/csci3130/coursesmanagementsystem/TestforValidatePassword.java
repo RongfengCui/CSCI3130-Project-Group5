@@ -5,10 +5,9 @@ import org.junit.Test;
 import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertTrue;
 
-public class unitTestforValidatePassword {
+public class TestforValidatePassword {
     private MainActivity valid = new MainActivity();
     @Test
-
     public void test1(){
         assertFalse(valid.validate("passwor3434343d"));
     }
@@ -30,6 +29,22 @@ public class unitTestforValidatePassword {
     }
     @Test
     public void test6(){
-        assertTrue(valid.validate("Qw333erirej1234jte1"));
+        assertTrue(valid.validate("ASdc1234993933333"));
+    }
+    @Test
+    public void test7(){
+        assertTrue(valid.validate("Kiw92929292929292"));
+    }
+    @Test
+    public void test8(){
+        assertTrue(valid.validate("Odmei1929283213213"));
+    }
+    @Test
+    public void test9(){
+        assertTrue(valid.validate("Iwewqem22223121111"));
+    }
+    @Test
+    public void test10(){
+        assertTrue(valid.validate("Oidk19191919191919222"));
     }
 }
