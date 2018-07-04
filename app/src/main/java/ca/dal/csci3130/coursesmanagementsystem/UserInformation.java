@@ -33,18 +33,5 @@ public class UserInformation {
         this.Faculty=Faculty;
         this.MailAddress = MailAddress;
         this.Course = Course;
-
-    }
-   /* public String getId(){
-        return Id;
-    }
-    public String getName (){
-        return Name;
-    }
-    public String getFaculty (){
-        return Faculty;
-    }
-    public String getMailAddress (){
-        return MailAddress;
-    }*/
+        }
 }
