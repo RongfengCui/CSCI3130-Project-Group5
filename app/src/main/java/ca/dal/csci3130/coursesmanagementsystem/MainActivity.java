@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -29,7 +28,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText editTextPassword;
     private TextView textViewSignin;
     private Button buttonRegister;
-
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
@@ -42,7 +40,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
     progressDialog = new ProgressDialog(this);
     firebaseAuth = FirebaseAuth.getInstance();
-
     buttonRegister = (Button) findViewById(R.id.buttonRegister);
     editTextEmail = (EditText)findViewById(R.id.editTextEmail);
     editTextPassword=(EditText)findViewById(R.id.editTextPassword);
@@ -58,17 +55,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void registerUser(){
         String email = editTextEmail.getText().toString().trim();
         String password= editTextPassword.getText().toString().trim();
-
+        //If user does not input email, then tells him to enter email
         if(TextUtils.isEmpty(email)){
             Toast.makeText(this,"Please enter email",Toast.LENGTH_SHORT).show();
             return;
-        //email is empty, stopping the function execution
-        }
-        if(TextUtils.isEmpty(password)){
+            }
+        //If user does not input password, then tells him to enter password
+            if(TextUtils.isEmpty(password)){
             Toast.makeText(this,"Please enter password",Toast.LENGTH_SHORT).show();
             return;
-            //email is empty, stopping the function execution
         }
+        //If password is satisfied rule, then it will register and store the information in database
         if(validate(password)==true) {
             progressDialog.setMessage("Registering User...");
             progressDialog.show();
@@ -80,7 +77,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 createUserStructure();
                                 Toast.makeText(MainActivity.this, "Registered Successfully\nNow you can login", Toast.LENGTH_SHORT).show();
                                 progressDialog.cancel();
-                            } else {
+                            }
+                            //if the account has already registered, then it cannot register again.
+                            else {
                                 Toast.makeText(MainActivity.this, "Registered failed, try again", Toast.LENGTH_SHORT).show();
                                 progressDialog.cancel();
                             }
@@ -149,7 +148,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      }
     if(view ==textViewSignin){
          startActivity(new Intent(this, Login.class));
+       }
     }
-    }
-    }
+}
 
